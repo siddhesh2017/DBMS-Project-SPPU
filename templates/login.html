@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Login
+{% endblock title %}
+
+{% block body %}
+<div class="container mt-5">
+  <br>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4 jumbotron shadow-lg p-3 mb-5 bg-white rounded">
+          <br>
+            <h1 class="text-center">Login</h1>
+            <br>
+            <div class="container">
+            <form> 
+    <!-- here form group and form control are responsible for the highlight of the box they import css from bootstrap and for and id attribute work same -->
+
+                <div class="form-group">
+                  <label for="email">Email Address</label>
+                  <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" required>
+                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+    
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input type="password" class="form-control" id="password" name="password" required>
+                </div>
+                Don't have account? <a href="/signup">Signup</a> <br> <br>
+                <button type="submit" class="btn btn-success shadow-lg p-3 mb-5 rounded">Login</button>
+              </form>
+            </div>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+    </div>
+{% endblock body %}
