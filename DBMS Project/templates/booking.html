@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %}
+My Detail's
+{% endblock title %}
+
+{% block body %}
+<div class="container mt-5 jumbotron-fluid shadow-lg p-3 mb-5 alert-warning rounded ">
+  <div class="table-responsive">
+    <table class="table">
+      <thead class="thead-light">
+        <tr class="table-warning">
+          <th scope="col">Id</th>
+          <th scope="col">Email</th>
+          <th scope="col">Name</th>
+          <th scope="col">Gender</th>
+          <th scope="col">Slot</th>
+          <th scope="col">Disease</th>
+          <th scope="col">Date</th>
+          <th scope="col">Time</th>
+          <th scope="col">Department</th>
+          <th scope="col">Phone No.</th>
+          <th scope="col">Edit</th>
+          <th scope="col">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for post in query %}
+        <tr>
+          <th scope="row">{{post.pid}}</th>
+          <td>{{post.email}}</td>
+          <td>{{post.name}}</td>
+          <td>{{post.gender}}</td>
+          <td>{{post.slot}}</td>
+          <td>{{post.disease}}</td>
+          <td>{{post.date}}</td>
+          <td>{{post.time}}</td>
+          <td>{{post.dept}}</td>
+          <td>{{post.number}}</td>
+          <td><a href="/edit/{{post.pid}}"><button class="btn btn-primary">Edit </button> </a> </td>
+      <td><a href="/delete/{{post.pid}}"><button onclick="return confirm('Are you sure to Delete data');" class="btn btn-danger">Delete </button> </a> </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% with message=get_flashed_messages(with_categories=true) %}
+                            {% if message %} 
+                            {% for catogory, message in message %}
+                            <div class="alert alert-{{category}} alert-warning" role="alert">
+                              {{message}}
+                              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            {% endfor %}
+                            {% endif %}
+                            {% endwith %}
+</div>
+</div>
+{% endblock body %}
+

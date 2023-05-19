@@ -1,0 +1,137 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Booking
+{% endblock title %}
+
+{% block body %}
+<div class="has-bg-img">
+    
+        <div class="container">
+            <div class="row">
+                <div class="col md-4 mr-5 ml-5 ">
+                    <!-- <img src="static/images/doc2.jpg" class="bg-img" alt="image" width="800" height="600"> -->
+                    <section class="hero-section">
+                      
+                     <br>
+                      <div class="container"> 
+                        <!-- border border-dark rounded -->
+                        <br>
+                        <h2><u>ABOUT US</u></h2> 
+                        <br>
+                        <H4>VISION</H4>
+                        <p>
+                          Achieving unmatched standards of excellence that become a benchmark of healthcare practice through innovation, technology and compassionate care.</p>
+                        
+                        <H4>MISSION</H4>
+                        <p>
+                          To provide integrated healthcare of global standards to patients from all walks of life and to establish ourselves as one of India's most trusted and advanced healthcare destinations.</p>              
+                        
+                          <h4>VALUES</h4>
+                          <p>
+                            Compassion – Encouraging open communication, transparency and maintaining excellence in personal and professional conduct.
+                            Quality – Adhering to the highest standards of patient care.
+                            Innovation – Recognising and implementing new ideas.
+                            Collaboration – Fostering efficiency and synergising to drive professional and organisational growth.
+                            Leadership – Being approachable, dependable and inspiring to build trust and mutual respect.</p>
+                        
+                        <br>
+                      </div>
+                      <br>
+                    </section>
+                </div>
+                <div class="col md-8 jumbotron shadow-lg p-3 alert-warning rounded mt-5">
+                    <h2>Booking Details</h2>
+                    <div class="container mt-4">
+                        <form action="/patients" method="post">
+
+ 
+
+                            <div class="form-group">
+                          
+                              <input type="email" class="form-control" id="email" value={{current_user.email}} name="email" required>
+                            
+                            </div>
+                          
+                            <div class="form-group">
+                            
+                              <input type="text" class="form-control" id="name" name="name" placeholder="Full Name" required>
+                            
+                            </div>
+                          
+                           <div class="form-group">
+                          
+                                      
+                                                                
+                          <select class="form-control" id="gender" name="gender"  required>
+                                  <option selected>Gender</option>
+                                  <option value="Male">Male</option>
+                                  <option value="Female">Female</option>
+                                  <option value="Others">Others</option>
+                           
+                                </select>
+                           </div>
+                          
+                           <div class="form-group">
+                          
+                                      
+                                                                
+                          <select class="form-control" id="slot" name="slot"  required>
+                                  <option selected>Slot</option>
+                                  <option value="morning">Morning</option>
+                                  <option value="evening">Evening</option>
+                                  <option value="night">Night</option>
+                           
+                                </select>
+                           </div>
+                          
+                            <div class="form-group">
+                              
+                              <input type="time" class="form-control" name="time" placeholder="Time" required>
+                            
+                            </div>
+                            <div class="form-group">
+                              
+                              <input type="date" class="form-control" name="date" placeholder="date" required>
+                            
+                            </div>
+                            <div class="form-group">
+                              
+                              <input type="text" class="form-control" id="disease" name="disease" placeholder="Disease" required>
+                            
+                            </div>
+                          
+                            <select class="form-control" id="dept" name="dept"  required>
+                              <option selected>Select Department</option>
+                              {% for d in doct %}
+                              <option value="{{d.dept}}">{{d.dept}}</option>
+                              {% endfor %}
+                            </select>
+                            <br>
+                          
+                            <div class="form-group">
+                          
+                              <input type="number" class="form-control" id="number" name="number" placeholder="Phone Number" required>
+                            
+                            </div>
+
+                            {% with message=get_flashed_messages(with_categories=true) %}
+                            {% if message %} 
+                            {% for catogory, message in message %}
+                            <div class="alert alert-{{category}} alert-warning" role="alert">
+                              {{message}}
+                            </div>
+                            {% endfor %}
+                            {% endif %}
+                            {% endwith %}
+                          
+                            <button type="submit" class="btn btn-success btn-sm btn-block p-2 rounded">Book</button>
+
+                            
+                          </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+{% endblock body %}

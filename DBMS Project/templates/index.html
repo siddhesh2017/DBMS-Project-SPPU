@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Home
+{% endblock title %}
+
+{% block body %}
+<div class="container-fluid mt-3 jumbotron-fluid p-3 mb-5 alert-danger rounded">
+  <section class="hero-section">
+    <div class="container">
+      <br>
+      <h1>LIFE IS PRECIOUS, WE CARE FOR IT.</h1>
+      <br>
+      <p>
+        With a vision to achieve standards of excellence which become a <br>
+        benchmark of healthcare practice and a mission to provide superior <br>
+        quality integrated healthcare to everybody at an affordable cost. <br>
+        <br>
+        Noble Hospital Pune was inaugrated on 7th July 2007. Thanks to the <br>
+         tireless efforts of our honorable M.D. Dr. Dileep Mane and his team a <br>
+          medical facility of this scale and magnitude turned into a reality. <br>
+        Book an appointment or schedule a visit.</p>
+      <a href="/patients" class="btn btn-success">Book Now</a>
+      <br>
+    </div>
+    <br>
+  </section>
+</div>
+
+<div class="container mt-5">
+  <div class="row ml-4 mb-5"> 
+    <div class="Col-3 ml-5">
+      <div class="card" style="width: 18rem;">
+        <img src="static/images/doc12.jpg" class="card-img-top" alt="...">
+        <div class="card-body jumbotron-fluid p-3 alert-danger rounded">
+          <h5 class="card-title">CARDIAC CARE CENTER</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="/patients" class="btn btn-success">Take Appointment</a>
+        </div>
+      </div>
+    </div>
+    <div class="Col-3 ml-5">
+      <div class="card" style="width: 18rem;">
+        <img src="static/images/doc13.jpg" style="height: 190.5px;" class="card-img-top" alt="...">
+        <div class="card-body jumbotron-fluid p-3 alert-danger rounded">
+          <h5 class="card-title">UROLOGY</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="/patients" class="btn btn-success">Take Appointment</a>
+        </div>
+      </div>
+    </div>
+    <div class="Col-3 ml-5">
+      <div class="card" style="width: 18rem;">
+        <img src="static/images/doc14.jpg" class="card-img-top" alt="...">
+        <div class="card-body jumbotron-fluid p-3 alert-danger rounded">
+          <h5 class="card-title">GENERAL SURGERY</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="/patients" class="btn btn-success">Take Appointment</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock body %}

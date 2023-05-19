@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Edits Patient Booking
+{% endblock title %}
+
+{% block body %}
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4 jumbotron shadow-lg p-3 mb-5 alert-warning rounded mt-5 ">
+        <h2>Update</h2>
+                    <div class="container mt-4">
+                        <form action="/edit/{{posts.pid}}" method="post">
+
+ 
+
+                            <div class="form-group">
+                          
+                              <input type="email" class="form-control" id="email" value={{current_user.email}} name="email" required>
+                            
+                            </div>
+                          
+                            <div class="form-group">
+                            
+                              <input type="text" class="form-control" id="name" name="name" value="{{posts.name}}" placeholder="Full Name" required>
+                            
+                            </div>
+                          
+                           <div class="form-group">                                      
+                                <select class="form-control" id="gender" name="gender"  required>
+                                        <option selected>
+                                            {{posts.gender}}
+                                        </option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Others">Others</option>
+                                </select>
+                           </div>
+                          
+                           <div class="form-group">
+                                <select class="form-control" id="slot" name="slot"  required>
+                                        <option selected>
+                                            {{posts.slot}}
+                                        </option>
+                                        <option value="morning">Morning</option>
+                                        <option value="evening">Evening</option>
+                                        <option value="night">Night</option>
+                                
+                                    </select>
+                           </div>
+                          
+                            <div class="form-group">
+                              
+                              <input type="time" class="form-control" name="time" value="{{posts.time}}" placeholder="Time" required>
+                            
+                            </div>
+                            <div class="form-group">
+                              
+                              <input type="date" class="form-control" name="date" value="{{posts.date}}" placeholder="date" required>
+                            
+                            </div>
+                            <div class="form-group">
+                              
+                              <input type="text" class="form-control" id="disease" name="disease" value="{{posts.disease}}" placeholder="Disease" required>
+                            
+                            </div>
+                          
+                            <div class="form-group">
+                              
+                              <input type="text" class="form-control" id="dept" name="dept" value="{{posts.dept}}" placeholder="Doctor Department" required>
+                            
+                            </div>
+                          
+                            <div class="form-group">
+                          
+                              <input type="number" class="form-control" id="number" name="number" value="{{posts.number}}" placeholder="Phone Number" required>
+                            
+                            </div>
+
+                            {% with message=get_flashed_messages(with_categories=true) %}
+                            {% if message %} 
+                            {% for catogory, message in message %}
+                            <div class="alert alert-{{category}} alert-warning" role="alert">
+                              {{message}}
+                            </div>
+                            {% endfor %}
+                            {% endif %}
+                            {% endwith %}
+                          
+                            <button type="submit" class="btn btn-success btn-sm btn-block p-2 rounded">Update</button>
+
+                            
+                          </form>
+                    </div>
+    </div>
+    <div class="col-md-4"></div>
+</div>
+{% endblock body %}
